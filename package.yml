@@ -1,0 +1,59 @@
+name       : wireguard
+version    : 0.0.20190913
+release    : 2
+source     :
+    -  https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20190913.tar.xz : 997327185d2d1b597dc118f737c0c165e2a2c21453387ea02659f1159d148518
+license    : GPL-2.0-or-later
+component  : network.clients
+component  :
+    - kernel.drivers
+    - current : kernel.drivers
+    - tools : network.clients
+summary    :
+    - Fast and secure kernelspace VPN
+    - current : wireguard module for linux-current
+    - tools   : wireguard tools
+description: |
+    WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+builddeps  :
+    - pkgconfig(libelf)
+    - pkgconfig(libmnl)
+    - linux-lts
+    - linux-lts-headers
+    - linux-current
+    - linux-current-headers
+permanent  :
+    - /lib/modules
+patterns   :
+    - current : /lib/modules/*.current
+    - tools :
+        - /usr/bin
+        - /usr/lib/systemd
+        - /usr/share
+        - /etc/wireguard
+setup      : |
+    pushd ..
+    cp -a WireGuard-${version} lts-build
+    cp -a WireGuard-${version} current-build
+build      : |
+    pushd ../lts-build/src
+    KERNELRELEASE="%kernel_version_lts%" make module
+
+    pushd ../../current-build/src
+    KERNELRELEASE="%kernel_version_current%" make module
+install    : |
+    KVERSION_LTS="%kernel_version_lts%"
+    KVERSION_CURRENT="%kernel_version_current%"
+    
+    cd $workdir
+    install -Dm644 '../lts-build/src/wireguard.ko' "$installdir/lib/modules/${KVERSION_LTS}/wireguard.ko"
+
+    install -Dm644 '../current-build/src/wireguard.ko' "$installdir/lib/modules/${KVERSION_CURRENT}/wireguard.ko"
+    
+    cd $workdir/src
+    make -C tools/ \
+            DESTDIR="$installdir/" \
+            WITH_BASHCOMPLETION=yes \
+            WITH_WGQUICK=yes \
+            WITH_SYSTEMDUNITS=yes \
+            install

@@ -1,0 +1,61 @@
+<PISI>
+    <Source>
+        <Name>wireguard</Name>
+        <Packager>
+            <Name>Arjen Runsink</Name>
+            <Email>arjen.runsink@gmail.com</Email>
+        </Packager>
+        <License>GPL-2.0-or-later</License>
+        <PartOf>kernel.drivers</PartOf>
+        <Summary xml:lang="en">Fast and secure kernelspace VPN</Summary>
+        <Description xml:lang="en">WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://getsol.us/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>wireguard</Name>
+        <Summary xml:lang="en">Fast and secure kernelspace VPN</Summary>
+        <Description xml:lang="en">WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+</Description>
+        <PartOf>kernel.drivers</PartOf>
+        <Files>
+            <Path fileType="data">/lib/modules/4.9.194-140.lts/wireguard.ko</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>wireguard-current</Name>
+        <Summary xml:lang="en">wireguard module for linux-current</Summary>
+        <Description xml:lang="en">WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+</Description>
+        <PartOf>kernel.drivers</PartOf>
+        <Files>
+            <Path fileType="data">/lib/modules/5.2.18-129.current/wireguard.ko</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>wireguard-tools</Name>
+        <Summary xml:lang="en">wireguard tools</Summary>
+        <Description xml:lang="en">WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+</Description>
+        <PartOf>network.clients</PartOf>
+        <Files>
+            <Path fileType="config">/etc/wireguard</Path>
+            <Path fileType="executable">/usr/bin/wg</Path>
+            <Path fileType="executable">/usr/bin/wg-quick</Path>
+            <Path fileType="library">/usr/lib/systemd/system/wg-quick@.service</Path>
+            <Path fileType="data">/usr/share/bash-completion/completions/wg</Path>
+            <Path fileType="data">/usr/share/bash-completion/completions/wg-quick</Path>
+            <Path fileType="man">/usr/share/man/man8/wg-quick.8</Path>
+            <Path fileType="man">/usr/share/man/man8/wg.8</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="2">
+            <Date>2019-10-09</Date>
+            <Version>0.0.20190913</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Arjen Runsink</Name>
+            <Email>arjen.runsink@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
