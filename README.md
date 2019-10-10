@@ -1,4 +1,7 @@
-This will build the wireguard kernel module and tools for the current kernel in unstable when not yet released and installed and the lts kernel. 
+This is the package recipe for wireguard kernel modules and the tools. 
 
-To build the modules for the current kernel, build using: 
+To build the modules for the current released and lts kernels, build using: 
 ```sudo solbuild build -p main-x86_64```
+
+To build for the kernel currently used in unstable (might not be released yet), just build using ```make```
+
