@@ -5,3 +5,4 @@ To build the modules for the current released and lts kernels, build using:
 
 To build for the kernel currently used in unstable (might not be released yet), just build using ```make```
 
+Adopted from here https://gitlab.com/devil505/solus-3rd-party-repo
