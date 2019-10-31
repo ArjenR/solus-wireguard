@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo solbuild build -p main-x86_64
+sudo solbuild build -t -p main-x86_64

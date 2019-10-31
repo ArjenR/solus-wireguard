@@ -1,6 +1,6 @@
 name       : wireguard
 version    : 0.0.20191012
-release    : 3
+release    : 4
 source     :
     -  https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20191012.tar.xz : 93573193c9c1c22fde31eb1729ad428ca39da77a603a3d81561a9816ccecfa8e
 license    : GPL-2.0-or-later
@@ -32,6 +32,7 @@ patterns   :
         - /usr/share
         - /etc/wireguard
 setup      : |
+    %patch -p1 < $pkgfiles/01-adopt-resolvectl.patch
     pushd ..
     cp -a WireGuard-${version} lts-build
     cp -a WireGuard-${version} current-build
