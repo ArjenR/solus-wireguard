@@ -19,7 +19,7 @@
 </Description>
         <PartOf>kernel.drivers</PartOf>
         <Files>
-            <Path fileType="data">/lib/modules/4.9.196-141.lts/wireguard.ko</Path>
+            <Path fileType="data">/lib/modules/4.9.200-145.lts/wireguard.ko</Path>
         </Files>
     </Package>
     <Package>
@@ -29,7 +29,7 @@
 </Description>
         <PartOf>kernel.drivers</PartOf>
         <Files>
-            <Path fileType="data">/lib/modules/5.2.20-130.current/wireguard.ko</Path>
+            <Path fileType="data">/lib/modules/5.3.10-134.current/wireguard.ko</Path>
         </Files>
     </Package>
     <Package>
@@ -50,9 +50,9 @@
         </Files>
     </Package>
     <History>
-        <Update release="4">
-            <Date>2019-10-31</Date>
-            <Version>0.0.20191012</Version>
+        <Update release="5">
+            <Date>2019-11-28</Date>
+            <Version>0.0.20191127</Version>
             <Comment>Packaging update</Comment>
             <Name>Arjen Runsink</Name>
             <Email>arjen.runsink@gmail.com</Email>
