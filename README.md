@@ -1,3 +1,5 @@
+NOTE: This repository is now archived.
+
 This is the package recipe for wireguard kernel modules and the tools. 
 
 To build the modules for the current released and lts kernels, build using: 
